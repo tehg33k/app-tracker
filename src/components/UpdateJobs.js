@@ -257,7 +257,7 @@ useEffect(() => {
                                     cols="50"
                                     className="form-control"
                                     onChange={changeHandler}
-                                    value={jobInfo.job_notes}
+                                    value={jobInfo.job_notes ?? ''}
                                 />
                                 {/* Add error message for job_notes if needed */}
                             </label>
