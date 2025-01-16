@@ -88,14 +88,26 @@ const ListJobs = ({ refreshJobList, jobsList }) => {
       <div className="job-list">
         {jobsToRender.map((job) => (
           <div className="job" key={job.id} style={{ backgroundColor: job.app_status === "Rejected" ? "#ef5d5d" : undefined}}>
-            <a 
-              className="company-name"
-              href={job.job_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {decodeHTMLEntities(job.company_name)}
-            </a>
+            <div className="job-header">
+              <a 
+                className="company-name"
+                href={job.job_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {decodeHTMLEntities(job.company_name)}
+              </a>
+              <div className="update-button">
+                <button
+                  type="button"
+                  className="btn"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#id${job.id}`}
+                >
+                  <i className="bi bi-pencil-square"></i>
+                </button>
+              </div>
+            </div>
             <p className="job-role">{job.job_role}</p>
             <p className="job-salary">{job.job_salary}</p>
             <span>
@@ -108,16 +120,7 @@ const ListJobs = ({ refreshJobList, jobsList }) => {
               <br />
               {job.app_status}
             </p>
-            <div className="update-button">
-              <button
-                type="button"
-                className="btn"
-                data-bs-toggle="modal"
-                data-bs-target={`#id${job.id}`}
-              >
-                <i className="bi bi-pencil-square"></i>
-              </button>
-            </div>
+
             <UpdateJobs
               job={job}
               jobsList={jobsList}

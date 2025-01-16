@@ -105,6 +105,10 @@ body  {
   box-shadow: 0px 2.98256px 10px rgba(0, 0, 0, 0.817);
 }
 
+.job-header {
+  display: flex;
+  justify-content: space-between;
+}
 .company-name {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -136,6 +140,9 @@ body  {
   align-self: flex-end;
 }
 
+.update-button button {
+  color: #ffffff;
+}
 .modal-header {
   color: rgb(0, 0, 0);
 }
