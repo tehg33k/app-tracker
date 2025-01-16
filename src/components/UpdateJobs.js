@@ -15,7 +15,8 @@ const UpdateJobs = ({ job, refreshJobList }) => {
         status_technical: job.status_technical,
         status_offer: job.status_offer,
         job_link: job.job_link,
-        job_salary: job.job_salary
+        job_salary: job.job_salary,
+        job_notes: job.job_notes
     });
 
     const [errorMessages, setErrorMessages] = useState({
@@ -116,6 +117,7 @@ useEffect(() => {
             status_offer: jobInfo.app_status === "Offer" ? jobInfo.statusDate : jobInfo.status_offer,
             job_link: jobInfo.job_link,
             job_salary: jobInfo.job_salary,
+            job_notes: jobInfo.job_notes
           };
           console.log('updating job')
           await fetch(`http://localhost:5000/job/${job.id}`, {
@@ -247,6 +249,18 @@ useEffect(() => {
                                 </div>
                                 )}
                             </div>
+                            <label>
+                                Notes: {/* Add Notes input */}
+                                <textarea
+                                    name="job_notes"
+                                    rows="4"
+                                    cols="50"
+                                    className="form-control"
+                                    onChange={changeHandler}
+                                    value={jobInfo.job_notes}
+                                />
+                                {/* Add error message for job_notes if needed */}
+                            </label>
                         </div>
 
                         <div className="modal-footer">

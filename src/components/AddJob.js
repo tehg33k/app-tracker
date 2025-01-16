@@ -9,13 +9,14 @@ const AddJob = ({ setJobsList, refreshJobList }) => {
         job_role: "",
         job_link: "",
         job_salary: "",
-        date_applied: "",
+        date_applied: new Date().toISOString().split('T')[0],
         app_status: "",
+        job_notes: ""
     });
 
     const [errorMessages, setErrorMessages] = useState({
         company_name: "",
-        job_role: ""
+        job_role: "",
     });
 
     const [isDisabled, setIsDisabled] = useState(true);
@@ -74,6 +75,7 @@ const AddJob = ({ setJobsList, refreshJobList }) => {
                 job_salary: newJob.job_salary,
                 date_applied: newJob.date_applied,
                 app_status: newJob.app_status,
+                job_notes: newJob.job_notes
             };
             const response = await fetch("http://localhost:5000/job", {
                 method: 'POST',
@@ -89,8 +91,9 @@ const AddJob = ({ setJobsList, refreshJobList }) => {
                 job_role: "",
                 job_link: "",
                 job_salary: "",
-                date_applied: "",
+                date_applied: new Date().toISOString().split('T')[0],
                 app_status: "",
+                job_notes: ""
             });
         } catch (error) {
             console.error(error);
@@ -189,6 +192,19 @@ const AddJob = ({ setJobsList, refreshJobList }) => {
                                     <option>Offer</option>
                                 </select>
                             </div>
+
+                            <label>
+                                Notes: {/* Add Notes input */}
+                                <textarea
+                                    name="job_notes"
+                                    rows="4"
+                                    cols="50"
+                                    className="form-control"
+                                    onChange={changeHandler}
+                                    value={newJob.job_notes}
+                                />
+                                {/* Add error message for job_notes if needed */}
+                            </label>
                         </div>
 
                         <div className="modal-footer">

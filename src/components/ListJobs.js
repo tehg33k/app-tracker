@@ -87,7 +87,7 @@ const ListJobs = ({ refreshJobList, jobsList }) => {
       </div>
       <div className="job-list">
         {jobsToRender.map((job) => (
-          <div className="job" key={job.id}>
+          <div className="job" key={job.id} style={{ backgroundColor: job.app_status === "Rejected" ? "#ef5d5d" : undefined}}>
             <a 
               className="company-name"
               href={job.job_link}
