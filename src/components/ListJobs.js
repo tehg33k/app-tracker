@@ -87,7 +87,23 @@ const ListJobs = ({ refreshJobList, jobsList }) => {
       </div>
       <div className="job-list">
         {jobsToRender.map((job) => (
-          <div className="job" key={job.id} style={{ backgroundColor: job.app_status === "Rejected" ? "#ef5d5d" : undefined}}>
+          <div 
+          className="job" 
+          key={job.id} 
+          style={{ 
+            backgroundColor: 
+              job.app_status === "Rejected" ? "#ef5d5d" 
+              : job.app_status === "Interviewed" ? "#ffce56"
+              : job.app_status === "Technical" ? "#56ccf2"
+              : job.app_status === "Offer" ? "#177d3f"
+              : undefined,
+            color: 
+            job.app_status === "Rejected" ? "white" 
+              : job.app_status === "Interviewed" ? "black" 
+              : job.app_status === "Technical" ? "black"
+              : 'white'
+          }}
+          >
             <div className="job-header">
               <a 
                 className="company-name"
@@ -103,6 +119,9 @@ const ListJobs = ({ refreshJobList, jobsList }) => {
                   className="btn"
                   data-bs-toggle="modal"
                   data-bs-target={`#id${job.id}`}
+                  style={{
+                    color: 'inherit'
+                  }}
                 >
                   <i className="bi bi-pencil-square"></i>
                 </button>

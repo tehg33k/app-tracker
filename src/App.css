@@ -125,7 +125,6 @@ body  {
 
 .job-salary {
   text-overflow: ellipsis;
-  color: rgb(1, 34, 48);
   white-space: nowrap;
   overflow: hidden;
   margin-bottom: 5px;
@@ -140,9 +139,6 @@ body  {
   align-self: flex-end;
 }
 
-.update-button button {
-  color: #ffffff;
-}
 .modal-header {
   color: rgb(0, 0, 0);
 }
