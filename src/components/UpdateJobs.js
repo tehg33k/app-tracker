@@ -266,21 +266,20 @@ useEffect(() => {
                         <div className="modal-footer">
                             <button
                                 type="button"
+                                className="btn btn-danger"
+                                data-bs-dismiss="modal"
+                                onClick={() => { window.confirm('Are you sure you want to delete this Job?',) && deleteJob(job.id) }}
+                            >
+                                Delete
+                            </button>
+                            <button
+                                type="button"
                                 className="btn btn-primary"
                                 data-bs-dismiss="modal"
                                 onClick={e => updateJobInfo(e)}
                                 disabled={isDisabled}
                             >
                                 Update
-                            </button>
-
-                            <button
-                                type="button"
-                                className="btn btn-danger"
-                                data-bs-dismiss="modal"
-                                onClick={() => { window.confirm('Are you sure you want to delete this Job?',) && deleteJob(job.id) }}
-                            >
-                                Delete
                             </button>
                         </div>
 
